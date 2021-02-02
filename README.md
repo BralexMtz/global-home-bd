@@ -1,5 +1,6 @@
-# global-home-bd
-Global Home es una empresa que cuenta con un sitio Web destinado a la renta y/o venta de viviendasya sea por periodos largos o simplemente para propósitos de vacaciones.  
+# Sistema de Base de Datos Global Home
+
+Global Home es una empresa que cuenta con un sitio Web destinado a la renta y/o venta de viviendas ya sea por periodos largos o simplemente para propósitos de vacaciones.  
 
 Se requiere realizar la construcción de una base de datos relacional que permita implementar las siguientes funcionalidades tanto en su sitio web como en su aplicación móvil.Registro de viviendas.  
 
