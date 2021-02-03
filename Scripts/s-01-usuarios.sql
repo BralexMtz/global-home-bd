@@ -53,10 +53,10 @@ begin
 
   execute immediate
   'grant create session, create table, create sequence, create procedure, 
-    create trigger to ROL_ADMIN';
+    create trigger, create any directory, create synonym, create public synonym to ROL_ADMIN';
 
   execute immediate
-  'grant ROL_ADMIN to PM_PROY_INVITADO';
+  'grant ROL_ADMIN to PM_PROY_ADMIN';
 
   dbms_output.put_line('Usuario listo');
 
@@ -100,7 +100,7 @@ begin
   execute immediate 'create role ROL_INVITADO';
 
   execute immediate
-  'grant create session to ROL_INVITADO';
+  'grant create session, create synonym to ROL_INVITADO';
 
   execute immediate
   'grant ROL_INVITADO to PM_PROY_INVITADO';
