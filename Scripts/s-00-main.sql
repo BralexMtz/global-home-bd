@@ -26,5 +26,17 @@ prompt creando indices
 prompt creando sinonimos
 @s-07-sinonimos.sql
 
+--promp creando vistas
+--@s-08-vistas.sql
+
+prompt creando funciones
+@s-15-get-texto-notificacion.sql
+
+prompt creando triggers
+@s-11-tr-actualiza-estado-historico.sql
+@s-11-tr-validar-tarjeta.sql
+@s-11-tr-actualiza-estado-alquiler.sql
+@s-11-tr-actualiza-estado-renta.sql
+
 prompt insertando dummy data xd
 @s-09-carga-inicial.sql

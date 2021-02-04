@@ -1,9 +1,11 @@
 --@Autor: Parada Pérez Jesús Bryan, Brayan Alexis Martinez Vazquez
 --@Fecha creación: 3/02/2021
---@Descripción: Creacion de trigger para validar que un usuario tenga tarjeta de credito
+--@Descripción: Creacion de trigger para validar que un usuario quiere vacacionar tenga tarjeta de credito
 
 create or replace trigger trg_tarjeta_credito
-before insert on alquiler
+  before insert on alquiler
+  for each row
+
   declare 
   v_tarjeta_credito_id tarjeta_credito.tarjeta_credito_id%type;
 

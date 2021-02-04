@@ -1,4 +1,4 @@
-
+set serveroutput on
 create or replace trigger actualiza_estado_historico
 after insert or update of estado_id on vivienda
 for each row
@@ -24,3 +24,5 @@ begin
     (historico_estado_vivienda_id,estado_id,fecha_estado,vivienda_id)
   values(v_hist_id,v_estado_id,v_fecha_estado,v_vivienda_id);
 end;
+/
+show errors
