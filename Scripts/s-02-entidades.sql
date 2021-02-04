@@ -215,7 +215,7 @@ create table notificacion(
     enviado number(1,0) not null,
     usuario_id number(10,0) not null,
     vivienda_id number(10,0) not null,
-    texto varchar2(100) not null,
+    texto varchar2(100) null,
     constraint notificacion_usuario_id_fk foreign key(usuario_id)
       references usuario(usuario_id),
     constraint notificacion_vivivienda_id_fk foreign key(vivienda_id)

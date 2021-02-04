@@ -37,4 +37,29 @@ create or replace view ventas(
     group by u.usuario_id;
 
 
+create or replace view pago_usuario(
+  vivienda_id, usuario_id, precio_vivienda, monto_acumulado, cantidad_faltante, monto_por_mes
+) as select v.vivienda_id, vt.usuario_id, vt.precio_inicial, q1.suma,
+       (vt.precio_inicial-q1.suma), (vt.precio_inicial/vt.num_mensualidades)
+     from  vivienda v 
+     join vivienda_venta vt on v.vivienda_id = vt.vivienda_id
+     join usuario u on vt.usuario_id = u.usuario_id
+     join ( 
+        select pa.vivienda_id, sum(pa.importe_pago) as suma
+        from pago_vivienda pa
+        where pa.vivienda_id = v.vivienda_id
+        group by pa.vivienda_id
+     ) q1 on v.vivienda_id = q1.vivienda_id;
+
+-- promedio de numero de estrellas
+create or replace view viviendas_5_estrellas(
+  vivienda_id, num_estrellas
+) as select vc.vivienda_id, avg(c.num_estrellas), v.direccion, v.descripcion
+     from vivienda_vacacional vc 
+     join vivienda v on vc.vivienda_id = v.vivienda_id
+     join alquiler a on vc.vivienda_id = a.vivienda_id
+     join calificacion_vivienda c on c.alquiler_id = a.alquiler_id
+     where  v.estado_id = 1
+     group by vc.vivienda_id, v.direccion, v.descripcion
+     having avg(c.num_estrellas) > 4;
 
