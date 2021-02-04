@@ -25,3 +25,6 @@ prompt creando indices
 
 prompt creando sinonimos
 @s-07-sinonimos.sql
+
+prompt insertando dummy data xd
+@s-09-carga-inicial.sql

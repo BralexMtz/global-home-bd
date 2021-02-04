@@ -123,10 +123,10 @@ create table vivienda_renta(
 prompt  creacion de vivienda vacacional
 create table vivienda_vacacional(
   vivienda_id constraint vivienda_vacacional_vivienda_id_fk references vivienda(vivienda_id),
-  costo_dia number(6,0) not null,
+  costo_dia number(6,2) not null, 
   dias_max number(2,0) not null,
   importe number(6,2) not null,
-  folio varchar2(18) not null,
+  folio varchar2(8) not null,
   pdf_validacion blob not null,
   constraint vivienda_vacacional_pk primary key (vivienda_id)
 );
@@ -135,8 +135,8 @@ create table vivienda_vacacional(
 prompt Creacion de la tabla vivienda venta
 create table vivienda_venta(
     vivienda_id number(10,0) not null,
-    num_catastral varchar2(40) not null,
-    folio varchar2(18) not null,
+    num_catastral varchar2(25) not null,
+    folio varchar2(8) not null,
     pdf_avaluo blob not null,
     precio_inicial number(10,2) not null,
     comision number(9,2) not null,
@@ -215,6 +215,7 @@ create table notificacion(
     enviado number(1,0) not null,
     usuario_id number(10,0) not null,
     vivienda_id number(10,0) not null,
+    texto varchar2(100) not null,
     constraint notificacion_usuario_id_fk foreign key(usuario_id)
       references usuario(usuario_id),
     constraint notificacion_vivivienda_id_fk foreign key(vivienda_id)

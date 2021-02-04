@@ -20,7 +20,7 @@ create sequence historico_estado_vivienda_seq
   cache 100
   order;
 
-create sequence vivienda_id_seq
+create sequence vivienda_seq
   start with 1
   increment by 1 
   nomaxvalue
