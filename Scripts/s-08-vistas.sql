@@ -37,5 +37,4 @@ create or replace view ventas(
     group by u.usuario_id;
 
 
-create or replace view 
 

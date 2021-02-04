@@ -9,7 +9,7 @@ create or replace function get_texto_notificacion(
 v_mensaje varchar2(100);
 begin 
   v_mensaje := 'Hoy es tu dia de suerte '||p_nombre_usuario||
-    ', ya que la vivienda con ID: '||p_vivienda_id||' esta DISPONIBLE.';
+    ', ya que la vivienda con ID: '||p_vivienda_id||' esta DISPONIBLE por ahora.';
   return v_mensaje;
 end;
 /
