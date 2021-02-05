@@ -14,8 +14,7 @@ create table usuarios_vetados(
   ap_materno varchar2(40),
   contrasenia varchar2(10),
   celular number(10,0)
-)
-organization external(
+)organization external(
   type oracle_loader
   default directory tmp_dir
   access parameters(
@@ -26,10 +25,9 @@ organization external(
       lrtrim
       missing field values are null
       (
-        usuarios_id, correo, nombre_usuario, nombre,
+        usuario_id, correo, nombre_usuario, nombre,
         ap_paterno, ap_materno, contrasenia, celular
       )
   )
   location ('tabla_externa.csv')
-)
-reject limit unlimited;
+)reject limit unlimited;

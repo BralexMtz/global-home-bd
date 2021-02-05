@@ -46,8 +46,8 @@ create table tarjeta_credito(
 prompt Creacion de la tabla vivienda
 create table vivienda(
     vivienda_id number(10,0) constraint vivienda_id_pk primary key,
-    latitud varchar2(20) not null,
-    longitud varchar2(20) not null,
+    latitud number(8,5) not null,
+    longitud number(8,5) not null,
     direccion varchar(50) not null,
     capacidad_personas number(3,0) not null,
     descripcion varchar(2000) not null,

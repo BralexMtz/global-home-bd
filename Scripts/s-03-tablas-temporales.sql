@@ -15,7 +15,7 @@ create global temporary table vivienda_cercana(
 ) on commit preserve rows;
 
 create or replace procedure creacion_tabla_vivienda_cercana(
-  p_longitud in varchar2, p_latitud in varchar2
+   p_latitud in varchar2,p_longitud in varchar2
 ) is
 
 --Declaracion de variables
@@ -43,14 +43,14 @@ end;
 /
 show errors
 
-
+-- Prueba del procedimiento y tabla temporal
 declare
   cursor cur_tabla_viviendas_cercanas is
     select * from vivienda_cercana;
   
 begin
 
-  creacion_tabla_vivienda_cercana(40.02202012121,0.00021218931);
+  creacion_tabla_vivienda_cercana(62.03,-97.03);
   dbms_output.put_line(
       'vivienda_id'||','||
       'capacidad_personas'||','||

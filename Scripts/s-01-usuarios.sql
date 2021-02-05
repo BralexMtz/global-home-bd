@@ -53,7 +53,8 @@ begin
 
   execute immediate
   'grant create session, create table, create sequence, create procedure, 
-    create trigger, create any directory, create synonym, create public synonym to ROL_ADMIN';
+    create trigger, create any directory, create synonym, create public synonym,
+    create view to ROL_ADMIN';
 
   execute immediate
   'grant ROL_ADMIN to PM_PROY_ADMIN';
