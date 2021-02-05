@@ -3,7 +3,7 @@
 --@Descripción: Creacion de trigger que actualice el estado de la vivienda cuando se haga insert en contrato renta
 
 create or replace trigger actualiza_estado_renta
-  after insert on contrato_renta
+  before insert on contrato_renta
   for each row
   declare
   v_estado_id vivienda.estado_id%type;

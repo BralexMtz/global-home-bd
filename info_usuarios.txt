@@ -1,0 +1,11 @@
+Datos del usuario:
+        Usuario_id: 100|   Nombre: Orv|   Ap_paterno: Gaspar|   Ap_materno: Grayham|   Nombre_usuario: ograyham2r|   Correo: ograyham2r@noaa.gov|   Celular: 3426736764
+        
+Datos de las viviendas del usuario:
+            Vivienda_id: 69|   Direccion: 9211 Dolor. Road
+Datos de las viviendas del usuario:
+            Vivienda_id: 15|   Direccion: P.O. Box 153, 8137 Massa. St.
+Datos de las viviendas del usuario:
+            Vivienda_id: 20|   Direccion: 609-3115 Cras Avenue
+Datos de las viviendas del usuario:
+            Vivienda_id: 25|   Direccion: 454 Enim Street
