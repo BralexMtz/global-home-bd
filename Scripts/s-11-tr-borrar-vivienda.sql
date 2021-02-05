@@ -3,59 +3,43 @@
 --@Descripción: Creacion de trigger para borrar una vivienda
 
 create or replace trigger tr_notifica
-for delete on vivienda
+for delete on mensaje
 compound trigger
 
-type vi_actualizado_type is record(
-  vi_estado_id vivienda.estado_id%type,
-  vi_vivienda_id vivienda.vivienda_id%type
+type mensaje_eliminar_type is record(
+  mensaje_id mensaje.mensaje_id%type;
+  titulo mensaje.titulo%type;
+  cuerpo mensaje.cuerpo%type;
+  leido mensaje.cuerpo%type;
+  respuesta mensaje.respuesta%type;
+  vivienda_id mensaje.vivienda_id%type;
+  usuario_id mensaje.usuario_id%type;
 );
 
-type viv_list_type is table of vi_actualizado_type;
+type mensaje_list_type is table of mensaje_eliminar_type;
 
-vivienda_list viv_list_type := viv_list_type();
+mensajes_list precio_list_type := mensaje_list_type();
 
 before each row is
   v_index number;
 begin
-  vivienda_list.extend;
-  v_index := vivienda_list.last;
-
-  vivienda_list(v_index).vi_estado_id := :new.estado_id;
-  vivienda_list(v_index).vi_vivienda_id :=:new.vivienda_id;
-  
+  mensajes.list.extend;
+  v_index := mensajes_list.last;
+  mensajes_list(v_index).mensaje_id := :old.mensaje_id;
+  mensajes_list(v_index).titulo := :old.titulo;
+  mensajes_list(v_index).cuerpo := :old.cuerpo;
+  mensajes_list(v_index).leido := :old.leido;
+  mensajes_list(v_index).respuesta := :old.respuesta;
+  mensajes_list(v_index).vivienda_id := :old.vivienda_id;
+  mensajes_list(v_index).usuario_id := :old.usuario_id;
 end before each row;
 after statement is
-  cursor cur_datos_usuarios_notificacion is
-    select u.nombre_usuario, u.usuario_id 
-    from usuario u
-    join notificacion n
-    on u.usuario_id=n.usuario_id
-    where n.vivienda_id=.vivienda_id;
-  
-  v_is_vacaciones number(1,0);
-
-
 begin
-  -- 
-  forall i in vivienda_list.first .. vivienda_list.last
-    select v.is_vacaciones into v_is_vacaciones
-    from vivienda v
-    where v.vivienda_id = i.vi_vivienda_id;
-
-    if i.vi_estado_id = 1 and  v_is_vacaciones = 1
-      then
-      for u in cur_datos_usuarios_notificacion loop
-
-          update notificacion 
-          set enviado=1, texto=get_texto_notificacion(u.nombre_usuario,i.vi_vivienda_id)
-          where usuario_id=u.usuario_id 
-          and vivienda_id=i.vi_vivienda_id;
-      
-      end loop;
-
+  forall i in mensajes_list.first .. mensajes_list.last
+    if mensajes_list(i).leido = 0 then
+      delete from mensaje where mensaje_id = mensajes_list(i).mensaje_id;
     end if;
-  end after statement;
+end after statement;
 end;
 /
 show errors
