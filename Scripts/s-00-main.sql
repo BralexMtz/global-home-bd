@@ -30,8 +30,8 @@ promp creando vistas
 @s-08-vistas.sql
 
 prompt creando funciones
-@s-15-get-texto-notificacion.sql
-@s-15-get-blob-img.sql
+@s-15-fx-get-texto-notificacion.sql
+@s-15-fx-get-blob-img.sql
 
 prompt creando triggers
 @s-11-tr-actualiza-estado-historico.sql
@@ -47,3 +47,6 @@ prompt Realizando prueba triggers
 @s-12-tr-actualiza-estado-alquiler-prueba.sql
 @s-12-tr-actualiza-estado-renta-prueba.sql
 @s-12-tr-validar-tarjeta-prueba.sql
+
+prompt pruebas funciones
+@s-16-fx-get-blob-img-prueba.sql

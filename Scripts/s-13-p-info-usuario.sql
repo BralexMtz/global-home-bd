@@ -5,8 +5,12 @@
 prompt conectando como sys
 connect sys as sysdba
 
-create or replace directory dir_tmp as '/home/jesus/Documents/ProyectoBD/global-home-bd';
+create or replace directory dir_tmp as '/tmp/bases/info_usuario';
 grant read, write on directory dir_tmp to PM_PROY_ADMIN;
+
+!mkdir /tmp/bases/info_usuario
+!chmod 777 /tmp/bases/info_usuario
+!touch /tmp/bases/info_usuario/info_usuarios.txt
 
 prompt conectando como PM_PROY_ADMIN
 connect PM_PROY_ADMIN

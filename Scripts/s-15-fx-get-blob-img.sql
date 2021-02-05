@@ -52,7 +52,7 @@ begin
 -- columna foto
 
   v_foto:=empty_blob();
-
+  DBMS_LOB.CREATETEMPORARY(v_foto,true);
   dbms_lob.open(v_bfile, dbms_lob.lob_readonly);
   v_src_offset :=1;
   v_dest_offset := 1;
