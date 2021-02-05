@@ -2,18 +2,18 @@
 --@Fecha creación: 3/02/2021
 --@Descripción: Creacion de trigger para borrar una a más viviendas
 
-create or replace trigger tr_notifica
+create or replace trigger tr_delete_mensajes
 for delete on mensaje
 compound trigger
 
 type mensaje_eliminar_type is record(
-  mensaje_id mensaje.mensaje_id%type;
-  titulo mensaje.titulo%type;
-  cuerpo mensaje.cuerpo%type;
-  leido mensaje.cuerpo%type;
-  respuesta mensaje.respuesta%type;
-  vivienda_id mensaje.vivienda_id%type;
-  usuario_id mensaje.usuario_id%type;
+  mensaje_id mensaje.mensaje_id%type,
+  titulo mensaje.titulo%type,
+  cuerpo mensaje.cuerpo%type,
+  leido mensaje.cuerpo%type,
+  respuesta mensaje.respuesta%type,
+  vivienda_id mensaje.vivienda_id%type,
+  usuario_id mensaje.usuario_id%type
 );
 
 type mensaje_list_type is table of mensaje_eliminar_type;
