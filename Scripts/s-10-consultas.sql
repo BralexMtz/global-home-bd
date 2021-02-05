@@ -79,6 +79,10 @@ join servicio s
 on s.SERVICIO_ID=vs.SERVICIO_ID
 where s.NOMBRE='WIFI';
 
--- 
+--  Consulta que obtiene el nombre de usuario, correo y celular de los usuarios vetados.
+-- tabla externa
+select nombre_usuario,correo,celular
+from USUARIOS_VETADOS uv
+where uv.AP_PATERNO like 'M%';
 
 

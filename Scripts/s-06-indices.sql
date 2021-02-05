@@ -10,8 +10,10 @@ prompt creando indice vivienda_direccion_iuk
 create unique index vivienda_direccion_iuk
   on vivienda(direccion);
 
-prompt creando indice idx_nombre_usuario
-create unique index idx_nombre_usuario 
+prompt creando indice usuario_nombre_usuario_iuk
+create unique index usuario_nombre_usuario_iuk
   on usuario(upper(nombre_usuario));
 
-
+prompt creando indice mensaje_titulo_ix
+create index mensaje_titulo_ix
+  on mensaje(upper(titulo));

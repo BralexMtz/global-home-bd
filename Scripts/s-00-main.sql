@@ -11,32 +11,32 @@ connect PM_PROY_ADMIN
 prompt creando tabla externa
 @s-04-tablas-externas.sql
 
--- prompt creando entidades
--- @s-02-entidades.sql
+prompt creando entidades
+@s-02-entidades.sql
 
--- prompt creando tablas temporales
--- @s-03-tablas-temporales.sql
+prompt creando tablas temporales
+@s-03-tablas-temporales.sql
 
--- prompt creando secuencias
--- @s-05-secuencias.sql
+prompt creando secuencias
+@s-05-secuencias.sql
 
--- prompt creando indices
--- @s-06-indices.sql
+prompt creando indices
+@s-06-indices.sql
 
--- prompt creando sinonimos
--- @s-07-sinonimos.sql
+prompt creando sinonimos
+@s-07-sinonimos.sql
 
--- promp creando vistas
--- @s-08-vistas.sql
+promp creando vistas
+@s-08-vistas.sql
 
--- prompt creando funciones
--- @s-15-get-texto-notificacion.sql
+prompt creando funciones
+@s-15-get-texto-notificacion.sql
 
--- prompt creando triggers
--- @s-11-tr-actualiza-estado-historico.sql
--- @s-11-tr-validar-tarjeta.sql
--- @s-11-tr-actualiza-estado-alquiler.sql
--- @s-11-tr-actualiza-estado-renta.sql
+prompt creando triggers
+@s-11-tr-actualiza-estado-historico.sql
+@s-11-tr-validar-tarjeta.sql
+@s-11-tr-actualiza-estado-alquiler.sql
+@s-11-tr-actualiza-estado-renta.sql
 
--- prompt insertando dummy data xd
--- @s-09-carga-inicial.sql
+prompt insertando dummy data xd
+@s-09-carga-inicial.sql

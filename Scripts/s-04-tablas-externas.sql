@@ -1,14 +1,14 @@
 --@Autor: Parada Pérez Jesús Bryan, Brayan Alexis Martinez Vazquez
 --@Fecha creación: 31/01/2021
 --@Descripción: Creación de las tablas externas
-prompt Conectando como sys
-connect sys as sysdba
+prompt Conectando como SYSTEM
+connect sys as sysdba 
 --Un objeto tipo directory es un objeto que se crea y almacena en el
 -- diccionario de datos y se emplea para mapear directorios
 -- reales en el sistema de archivos. En este caso tmp_dir es un
 -- objeto que apunta al directorio /media/bralex/Data/Repositorios/global-home-bd del servidor
 prompt creando directorio tmp_dir
-create or replace directory tmp_dir as '/media/bralex/Data/Repositorios/global-home-bd';
+create or replace directory tmp_dir as '/tmp/bases';
 --se otorgan permisos para que el usuario PM_PROY_ADMIN de la BD pueda leer
 --el contenido del directorio
 grant read, write on directory tmp_dir to PM_PROY_ADMIN;
@@ -41,3 +41,12 @@ create table usuarios_vetados(
   )
   location('tabla_externa.csv')
 )reject limit unlimited;
+
+
+prompt creando el directorio /tmp/bases en caso de no existir
+!mkdir -p /tmp/bases
+
+prompt copiando el archivo csv a /tmp/bases
+!cp ../tabla_externa.csv /tmp/bases
+prompt cambiando permisos
+!chmod 777 /tmp/bases
