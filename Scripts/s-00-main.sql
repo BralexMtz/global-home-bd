@@ -31,6 +31,7 @@ promp creando vistas
 
 prompt creando funciones
 @s-15-get-texto-notificacion.sql
+@s-15-get-blob-img.sql
 
 prompt creando triggers
 @s-11-tr-actualiza-estado-historico.sql
