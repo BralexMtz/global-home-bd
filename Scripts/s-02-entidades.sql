@@ -101,9 +101,9 @@ create table historico_estado_vivienda(
 prompt  creacion de tabla mensaje
 create table mensaje(
   mensaje_id number(10,0) constraint mensaje_id_pk primary key,
-  respuesta constraint mensaje_respuesta_fk references mensaje(mensaje_id)
+  mensaje_previo constraint mensaje_mensaje_previo_fk references mensaje(mensaje_id)
   on delete cascade,
-  titulo varchar2(40) not null,
+  titulo varchar2(100) not null,
   cuerpo varchar2(500) not null,
   leido number(1,0) not null,
   vivienda_id constraint mensaje_vivienda_id_fk references vivienda(vivienda_id),

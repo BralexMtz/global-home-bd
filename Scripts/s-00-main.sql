@@ -41,6 +41,7 @@ prompt creando triggers
 @s-11-tr-validar-tarjeta.sql
 @s-11-tr-actualiza-estado-alquiler.sql
 @s-11-tr-actualiza-estado-renta.sql
+@s-11-tr-borrar-mensajes.sql
 
 prompt insertando dummy data xd
 @s-09-carga-inicial.sql
@@ -49,6 +50,7 @@ prompt Realizando prueba triggers
 @s-12-tr-actualiza-estado-alquiler-prueba.sql
 @s-12-tr-actualiza-estado-renta-prueba.sql
 @s-12-tr-validar-tarjeta-prueba.sql
+@s-12-tr-borrar-mensajes-prueba.sql
 
 prompt pruebas funciones
 @s-16-fx-get-blob-img-prueba.sql
