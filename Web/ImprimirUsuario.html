@@ -26,49 +26,31 @@
           </ul>
         </div>
       </nav>
-     
+
       <div class="container">
-        <form>
-
-            <div class="form-row">
-              <div class="form-group col-6">
-                  <label for="inputName">Nombre</label>
-                  <input type="text" class="form-control" id="Name" placeholder="Juanito">
-              </div>
-              <div class="form-group col-6">
-                <label for="inputLastName">Apellido paterno</label>
-                <input type="text" class="form-control" id="Last Name" placeholder="Mendez">
-              </div>
-              <div class="form-group col-6">
-                <label for="inputName">Apellido materno</label>
-                <input type="text" class="form-control" id="Name" placeholder="Rubi">
-              </div>
-              <div class="form-group col-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
+        <form class="form-inline">
+            <div class="form-group mb-2">
+            <label for="staticEmail2" class="sr-only">Nombre de Usuario</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Nombre de Usuario">
             </div>
-
-            <div class="form-group">
-              <label for="inputPassword4">Nombre de usuario</label>
-              <input type="text" class="form-control" id="inputUserName" placeholder="BrandonKyloRen">
+            <div class="form-group mx-sm-3 mb-2">
+            <label for="inputName" class="sr-only">Nombre de Usuario</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Usuario a buscar">
             </div>
+            <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+        </form>
 
-            <div class="form-group">
-              <label for="inputPass">Contraseña</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
-            </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body ">
+            <h5 class="card-title">Nombre de Usuario</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Nombre completo</h6>
+            <p class="card-text">Correo</p>
+            <p class="card-text">Celular</p>
+            <p class="card-text">Contraseña</p>
+          </div>
+        </div>
 
-            <div class="form-group">
-                <label for="inputCelularNumber">Numero de Celular</label>
-                <input type="number" class="form-control" id="inputCelularNumber" placeholder="055632514">
-              </div>
-
-            <button type="submit" class="btn btn-primary">Registrar</button>
-
-          </form>
       </div>
-
 
 
     <!-- Boostrap-->
@@ -77,4 +59,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
 </body>
-</htm
+</html>
