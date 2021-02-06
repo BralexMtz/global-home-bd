@@ -6,7 +6,7 @@ create or replace function comisiones return number is
 
 v_comision_total number(11,2) default 0;
 cursor cur_viviendas_comision is
-  select vv.precio_inicial
+  select distinct vv.precio_inicial
   from vivienda_venta vv
   join pago_vivienda pv on vv.vivienda_id = pv.vivienda_id;
 

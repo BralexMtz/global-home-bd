@@ -2,6 +2,8 @@
 --@Fecha creación: 31/01/2021
 --@Descripción: Main del hilo del programa
 
+whenever sqlerror exit rollback
+
 prompt creando usuarios
 @s-01-usuarios.sql
 
@@ -32,13 +34,13 @@ promp creando vistas
 prompt creando funciones
 @s-15-fx-get-texto-notificacion.sql
 @s-15-fx-get-blob-img.sql
+@s-15-fx-comisiones-totales.sql
 
 prompt creando triggers
 @s-11-tr-actualiza-estado-historico.sql
 @s-11-tr-validar-tarjeta.sql
 @s-11-tr-actualiza-estado-alquiler.sql
 @s-11-tr-actualiza-estado-renta.sql
---
 
 prompt insertando dummy data xd
 @s-09-carga-inicial.sql
@@ -50,3 +52,9 @@ prompt Realizando prueba triggers
 
 prompt pruebas funciones
 @s-16-fx-get-blob-img-prueba.sql
+@s-16-fx-get-texto-notificacion-prueba.sql
+@s-16-fx-comisiones-totales-prueba.sql
+
+commit;
+whenever sqlerror continue none
+prompt listo!

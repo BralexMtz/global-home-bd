@@ -6,9 +6,9 @@ create or replace function get_texto_notificacion(
   p_usuario_id number, p_vivienda_id number
 ) return varchar2 is
 
-v_nombre_usuario usuario.usuario_id%type;
-v_direccion vivienda.vivienda_id%type;
-v_mensaje varchar2(100);
+v_nombre_usuario usuario.nombre_usuario%type;
+v_direccion vivienda.direccion%type;
+v_mensaje varchar2(500);
 begin 
 
   select nombre_usuario into v_nombre_usuario
