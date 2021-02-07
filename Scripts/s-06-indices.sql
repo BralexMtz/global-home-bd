@@ -18,6 +18,6 @@ prompt creando indice mensaje_titulo_ix
 create index mensaje_titulo_ix
   on mensaje(upper(titulo));
 
-prompt creando indice mensaje_titulo_ix
-create index mensaje_titulo_ix
+prompt creando indice usuario_celular_ix
+create index usuario_celular_ix
   on usuario(celular);

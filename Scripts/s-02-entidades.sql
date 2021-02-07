@@ -136,6 +136,7 @@ create table vivienda_vacacional(
 prompt Creacion de la tabla vivienda venta
 create table vivienda_venta(
     vivienda_id number(10,0) not null,
+    num_mensualidades number(3,0) null,
     num_catastral varchar2(25) not null,
     folio varchar2(8) not null,
     pdf_avaluo blob not null,
@@ -143,7 +144,6 @@ create table vivienda_venta(
     comision number(9,2) not null,
     clabe_interbancaria number(18,0) null,
     usuario_id number(10,0) null,
-    num_mensualidades number(3,0) null,
     constraint vivienda_venta_num_mensualidades_chk 
     check(num_mensualidades <= 240),
     constraint vivienda_venta_vivienda_id_fk foreign key(vivienda_id)
