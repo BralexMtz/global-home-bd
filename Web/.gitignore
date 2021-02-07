@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+bin/
+cx_Oracle-doc/
+lib/
+django/
+pyvenv.cfg
+__pycache__/
