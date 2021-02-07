@@ -8,7 +8,7 @@ connect sys as sysdba
 create or replace directory dir_tmp as '/tmp/bases/info_usuario';
 grant read, write on directory dir_tmp to PM_PROY_ADMIN;
 
-!mkdir /tmp/bases/info_usuario
+!mkdir -p /tmp/bases/info_usuario
 !chmod 777 /tmp/bases/info_usuario
 !touch /tmp/bases/info_usuario/info_usuarios.txt
 

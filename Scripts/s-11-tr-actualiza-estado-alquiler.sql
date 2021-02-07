@@ -13,9 +13,11 @@ create or replace trigger actualiza_estado_alquiler
     where vivienda_id = :new.vivienda_id;
 
     if v_estado_id = 1 then
-      update vivienda set estado_id = 3, fecha_estado = :new.periodo_ocupacion_inicio where vivienda_id = :new.vivienda_id;
+      update vivienda set estado_id = 3, fecha_estado = :new.periodo_ocupacion_inicio 
+      where vivienda_id = :new.vivienda_id;
     else
-      raise_application_error(-20011,'La vivienda no está disponible, actualmente tiene estado: '||v_estado_id);
+      raise_application_error(-20011,'La vivienda no está disponible, actualmente tiene 
+      estado: '||v_estado_id);
     end if;
   end;
   /
