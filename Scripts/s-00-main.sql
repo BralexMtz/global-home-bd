@@ -52,11 +52,11 @@ prompt Realizando prueba triggers
 @s-12-tr-validar-tarjeta-prueba.sql
 @s-12-tr-borrar-mensajes-prueba.sql
 
-prompt creando procedimientos
+prompt Creando procedures
 @s-13-p-info-usuario.sql
 @s-13-p-insertar-vivienda.sql
 
-prompt creando procedimientos
+prompt Ejecutando pruebas de procedures
 @s-14-p-info-usuario-prueba.sql
 @s-14-p-insertar-vivienda-prueba.sql
 

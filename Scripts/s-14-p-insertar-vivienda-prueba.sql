@@ -2,6 +2,7 @@
 --@Fecha creación: 05/02/2021
 --@Descripción: Validación de insertar vivienda
 
+set serveroutput on
 declare
 
   v_vivienda_id  vivienda.vivienda_id%type;
@@ -16,21 +17,21 @@ declare
   v_is_venta  vivienda.is_venta%type;
   v_duenio  vivienda.duenio%type;
   v_estado_id  vivienda.estado_id%type;
-  v_costo_mensual  vivienda.costo_mensual%type;
-  v_dia_pago  vivienda.dia_pago%type;
-  v_costo_dia  vivienda.costo_dia%type;
-  v_dias_max  vivienda.dias_max%type;
-  v_importe  vivienda.importe%type;
-  v_folio_vacas  vivienda.folio_vacas%type;
-  v_pdf_validacion vivienda.pdf_validacion%type;
-  v_num_mensualidades  vivienda.num_mensualidades%type;
-  v_num_catastral  vivienda.num_catastral%type;
-  v_folio_venta  vivienda.folio_venta%type;
-  v_pdf_avaluo  vivienda.pdf_avaluo%type;
-  v_precio_inicial  vivienda.precio_inicial%type;
-  v_comision  vivienda.comision%type;
-  v_clabe_interbancaria  vivienda.clabe_interbancaria%type;
-  v_usuario_id vivienda.usuario_id%type;
+  v_costo_mensual  vivienda_renta.costo_mensual%type;
+  v_dia_pago  vivienda_renta.dia_pago%type;
+  v_costo_dia  vivienda_vacacional.costo_dia%type;
+  v_dias_max  vivienda_vacacional.dias_max%type;
+  v_importe  vivienda_vacacional.importe%type;
+  v_folio_vacas  vivienda_vacacional.folio%type;
+  v_pdf_validacion vivienda_vacacional.pdf_validacion%type;
+  v_num_mensualidades  vivienda_venta.num_mensualidades%type;
+  v_num_catastral  vivienda_venta.num_catastral%type;
+  v_folio_venta  vivienda_venta.folio%type;
+  v_pdf_avaluo  vivienda_venta.pdf_avaluo%type;
+  v_precio_inicial  vivienda_venta.precio_inicial%type;
+  v_comision  vivienda_venta.comision%type;
+  v_clabe_interbancaria  vivienda_venta.clabe_interbancaria%type;
+  v_usuario_id vivienda_venta.usuario_id%type;
 
   v_cuenta number(10,0);
 
@@ -80,10 +81,10 @@ begin
   ---------------------------------------------------------------------------------
   insertando... ');
 
-  insertar_vivienda(vivienda_id, latitud, longitud,direccion, capacidad_personas, 
-    descripcion, fecha_estado, is_renta, is_vacaciones, is_venta, duenio, estado_id, 
-  costo_mensual, dia_pago, costo_dia, dias_max, importe, folio_vacas, pdf_validacion,
-  num_mensualidades, num_catastral, folio_venta, pdf_avaluo, precio_inicial, comision, clabe_interbancaria, usuario_id);
+  insertar_vivienda(v_vivienda_id, v_latitud, v_longitud, v_direccion, v_capacidad_personas, 
+    v_descripcion, v_fecha_estado, v_is_renta, v_is_vacaciones, v_is_venta, v_duenio, v_estado_id, 
+    v_costo_mensual, v_dia_pago, v_costo_dia, v_dias_max, v_importe, v_folio_vacas, v_pdf_validacion,
+    v_num_mensualidades, v_num_catastral, v_folio_venta, v_pdf_avaluo, v_precio_inicial, v_comision, v_clabe_interbancaria, v_usuario_id);
 
   select count(*) into v_cuenta
   from vivienda v
@@ -91,7 +92,7 @@ begin
   on v.vivienda_id=vv.vivienda_id
   join vivienda_renta vr
   on v.vivienda_id= vr.vivienda_id
-  where vivienda_id=v_vivienda_id;
+  where v.vivienda_id=v_vivienda_id;
 
 
   if v_cuenta=1 then
@@ -99,13 +100,15 @@ begin
     from vivienda v
     join vivienda_venta vv
     on v.vivienda_id=vv.vivienda_id
-    where vivienda_id=v_vivienda_id;
+    where v.vivienda_id=v_vivienda_id;
 
     if v_cuenta=0 then
-      dbms_output.put_line('>>>>>>>  Exito vivienda insertada')
+      dbms_output.put_line('>>>>>>>  Exito vivienda insertada');
+    else
+      dbms_output.put_line('ERROR vivienda no insertada correctamente');
     end if;
   end if;
-  dbms_output.put_line('ERROR vivienda no insertada correctamente')
+  
 
 end;
 /

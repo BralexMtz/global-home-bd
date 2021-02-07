@@ -23,3 +23,15 @@ Para  este  tipo  de  vivienda,  el  sistema  permite  realizar el  pago  de  la
 El  primer  servicio  setrata  de  un  sistema  de notificaciones en el que el sistema enviará un mensaje SMS al usuario en cuanto una vivienda esté disponible para ser alquilada. Se deberá almacenar la lista de usuarios que están interesados en una o más viviendas, así como el número de celular al que será enviado el mensaje.Una vez que el mensaje se envía, se activa una bandera de “notificación enviada”.
 
 El segundo servicio se refiere a la posibilidad de calificar a una vivienda para vacacionar. El usuario podrá asignarle una calificación (hasta 5 estrellas) y una descripción que justifica su calificación.  Se requiere almacenar estos datos,así como la fecha en la que se realiza la evaluación.
+
+---------------------------------------------------------------
+## PASOS PARA EL AMBIENTE VIRTUAL CON DJANGO
+
+1. Instalar python 3
+2. Instalar venv para python
+3. Crear el ambiente virtual en la carpeta raiz, en este caso es la carpeta WEB, (python -m venv Web)
+4. Activar el ambiente virtual (source Web/bin/activate)
+5. Hacemos git clone https://github.com/django/django.git dentro de la carpeta Web
+6. despues instalar django (pip install -e django) dentro de la carpeta Web
+7. INstalar el paquete de oracle (python3 -m pip install cx_Oracle --upgradeCollecting cx_Oracle) dentro de la carpeta Wbe
+8. Por último, para correr el servidor debemos de posicionarnos donde está el archivo manage.py y ejecutar (python3 manage.py runserver)

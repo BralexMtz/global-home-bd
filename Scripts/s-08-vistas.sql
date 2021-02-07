@@ -3,6 +3,7 @@
 --@Descripción: Creación de vistas para el proyecto de BD
 
 prompt Creando primer vista
+--Vista que nos da usuario por usuario y cuanto dinero ha generado por sus viviendas vacacionales
 create or replace view ventas_vacacionales_usuario(
   usuario_id, nombre, apellido_paterno, apellido_materno, ventas_vacacionales
 ) as select u.usuario_id, u.nombre, u.AP_PATERNO, u.AP_MATERNO, sum(a.num_dias_ocupara*vv.costo_dia)
@@ -17,6 +18,8 @@ group by u.usuario_id,u.nombre,u.AP_PATERNO,u.AP_MATERNO;
 
 
 prompt Creando segunda vista
+--Vista que enseña usuario por usuario cómo van sus pagos, enseña lo que lleva pagado, lo que le falta y
+--lo que debe pagar mes a mes
 create or replace view pago_usuario(
   vivienda_id, usuario_id, precio_vivienda, monto_acumulado, cantidad_faltante, monto_por_mes
 ) as select v.vivienda_id, vt.usuario_id, vt.precio_inicial, q1.suma as precio_acumulado,
@@ -32,7 +35,7 @@ create or replace view pago_usuario(
 
 
 prompt Creando tercer vista
--- promedio de numero de estrellas
+-- MUestra los datos de las viviendas con una calificcion arriba de 4 estrellas
 create or replace view viviendas_5_estrellas(
   vivienda_id, num_estrellas_promedio, direccion, descripcion
 ) as  select vc.vivienda_id, avg(c.num_estrellas) as promedio_estrellas, v.direccion, v.descripcion
