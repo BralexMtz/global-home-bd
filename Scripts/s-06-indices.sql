@@ -17,3 +17,7 @@ create unique index usuario_nombre_usuario_iuk
 prompt creando indice mensaje_titulo_ix
 create index mensaje_titulo_ix
   on mensaje(upper(titulo));
+
+prompt creando indice mensaje_titulo_ix
+create index mensaje_titulo_ix
+  on usuario(celular);
